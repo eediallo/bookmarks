@@ -5,7 +5,7 @@ export const users = [
     bookmarks: [
       {
         id: 1,
-        url: "example.com",
+        url: "https://codeyourfuture.io/",
         title: "The beginning of the end",
         description: "The end is very near. People should harry up",
       },
@@ -18,7 +18,7 @@ export const users = [
     bookmarks: [
       {
         id: 1,
-        url: "hello.com",
+        url: "https://www.codewars.com/",
         title: "Lif if about saying HELLO",
         description: "HELLO is used every in the workplace",
       },
