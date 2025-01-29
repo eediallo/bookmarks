@@ -5,7 +5,7 @@
 // You can't open the index.html file using a file:// URL.
 
 import { getUserIds } from "./storage.js";
-import { users } from "./users.js";
+import { INITIAL_USERS } from "./data.js";
 
 const userSelectEl = document.getElementById("user");
 
@@ -17,7 +17,7 @@ function createUserOption(user) {
 }
 
 function render() {
-  const usersList = users.map(createUserOption);
+  const usersList = INITIAL_USERS.map(createUserOption);
   userSelectEl.append(...usersList);
 }
 
@@ -45,7 +45,7 @@ function createBookmarkCard(user) {
 }
 
 function renderBookmarks() {
-  const bookmarks = users.map(createBookmarkCard);
+  const bookmarks = INITIAL_USERS.map(createBookmarkCard);
   document.querySelector(".bookmarks").append(...bookmarks);
 }
 
