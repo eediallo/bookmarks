@@ -44,10 +44,6 @@ function createBookmarkCard(user) {
   return bookmarkCard;
 }
 
-function renderBookmarks() {
-  const bookmarks = INITIAL_USERS.map(createBookmarkCard);
-  document.querySelector(".bookmarks").append(...bookmarks);
-}
 
 window.onload = function () {
   render();
