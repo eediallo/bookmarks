@@ -51,7 +51,19 @@ function renderBookmarks() {
 
 window.onload = function () {
   render();
-  renderBookmarks();
+
+  userSelectEl.addEventListener("change", (event) => {
+    const optionText = event.target.value.toLowerCase();
+    const bookmarksContainer = document.querySelector(".bookmarks");
+    bookmarksContainer.innerHTML = ""; // Clear previous bookmarks
+
+    for (const user of INITIAL_USERS) {
+      if (user.name.toLowerCase() === optionText) {
+        const bookmarkCard = createBookmarkCard(user);
+        bookmarksContainer.append(bookmarkCard);
+      }
+    }
+  });
 };
 
 export { createUserOption, createBookmarkCard };
