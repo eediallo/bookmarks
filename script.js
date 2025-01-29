@@ -21,8 +21,33 @@ function render() {
   userSelectEl.append(...usersList);
 }
 
+function createBookmarkCard(user) {
+  const bookmarkCard = document.createElement("section");
+  for (const { url, title, description } of user.bookmarks) {
+    const urlEl = document.createElement("p");
+    urlEl.textContent = url;
+    const titleEl = document.createElement("a");
+    titleEl.setAttribute("href", urlEl.textContent);
+    titleEl.textContent = title;
+    const descEl = document.createElement("p");
+    descEl.textContent = description;
+
+    bookmarkCard.append(titleEl, descEl);
+  }
+
+  bookmarkCard.classList.add('bookmark-card')
+
+  return bookmarkCard;
+}
+
+function renderBookmarks() {
+  const bookmarks = users.map(createBookmarkCard);
+  document.querySelector(".bookmarks").append(...bookmarks);
+}
+
 window.onload = function () {
   render();
+  renderBookmarks();
 };
 
-export { createUserOption };
+export { createUserOption, createBookmarkCard };
