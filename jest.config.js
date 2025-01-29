@@ -1,8 +1,11 @@
 /** @type {import('jest').Config} */
 const config = {
   verbose: true,
-  testEnvironment: "jsdom", // ✅ Use jsdom for DOM testing
-  setupFilesAfterEnv: ["./jest.setup.js"], // ✅ Load jest-dom setup
+  testEnvironment: "jest-environment-jsdom",
+  setupFilesAfterEnv: ["./jest.setup.js"], 
+  transform: {
+    "^.+\\.m?js$": "babel-jest", // Allow ES modules with Jest
+  },
 };
 
-module.exports = config;
+export default config;
