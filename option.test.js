@@ -1,7 +1,5 @@
 import { createUserOption } from "./script.js";
 
-// FILE: script.test.js
-
 describe("createUserOption", () => {
   test("should create an option element with the correct value and text content", () => {
     const user = { name: "John Doe" };
