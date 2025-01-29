@@ -23,19 +23,23 @@ function render() {
 
 function createBookmarkCard(user) {
   const bookmarkCard = document.createElement("section");
-  for (const { url, title, description } of user.bookmarks) {
-    const urlEl = document.createElement("p");
-    urlEl.textContent = url;
+  for (const { url, title, description, date } of user.bookmarks) {
     const titleEl = document.createElement("a");
-    titleEl.setAttribute("href", urlEl.textContent);
+    titleEl.setAttribute("href", url);
     titleEl.textContent = title;
+
+    const titleP = document.createElement("p");
+    titleP.append(titleEl);
+
     const descEl = document.createElement("p");
     descEl.textContent = description;
+    const dateEl = document.createElement("p");
+    dateEl.textContent = date;
 
-    bookmarkCard.append(titleEl, descEl);
+    bookmarkCard.append(date, titleP, descEl);
   }
 
-  bookmarkCard.classList.add('bookmark-card')
+  bookmarkCard.classList.add("bookmark-card");
 
   return bookmarkCard;
 }
