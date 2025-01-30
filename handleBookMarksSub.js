@@ -2,6 +2,7 @@ const userSelectEl = document.getElementById("user");
 import { createBookmarkCard } from "./script.js";
 import { USERS } from "./data.js";
 import { getData, setData } from "./storage.js";
+import { createBookmarkBtn, formEl } from "./config.js";
 
 export function handleBookmarkSubmission(e) {
   e.preventDefault();
@@ -34,4 +35,8 @@ export function handleBookmarkSubmission(e) {
   urlInput.value = "";
   titleInput.value = "";
   descriptionInput.value = "";
+
+  //
+  formEl.style.display = "none";
+  createBookmarkBtn.style.display = "block";
 }
