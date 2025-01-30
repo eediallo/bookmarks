@@ -4,7 +4,7 @@
 // Note that when running locally, in order to open a web page which uses modules, you must serve the directory over HTTP e.g. with https://www.npmjs.com/package/http-server
 // You can't open the index.html file using a file:// URL.
 
-import { INITIAL_USERS } from "./data.js";
+import { USERS } from "./data.js";
 import { getUserIds, setData, clearData, getData } from "./storage.js";
 
 const userSelectEl = document.getElementById("user");
@@ -17,7 +17,7 @@ function createUserOption(user) {
 }
 
 function render() {
-  const usersList = INITIAL_USERS.map(createUserOption);
+  const usersList = USERS.map(createUserOption);
   userSelectEl.append(...usersList);
 }
 
