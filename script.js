@@ -1,12 +1,8 @@
-// This is a placeholder file which shows how you can access functions defined in other files.
-// It can be loaded into index.html.
-// You can delete the contents of the file once you have understood how it works.
-// Note that when running locally, in order to open a web page which uses modules, you must serve the directory over HTTP e.g. with https://www.npmjs.com/package/http-server
-// You can't open the index.html file using a file:// URL.
-
 import { USERS } from "./data.js";
-import { getUserIds, setData, clearData, getData } from "./storage.js";
+import { handleBookmarkSubmission } from "./handleBookMarksSub.js";
+import { loadBookmarksForSelectedUser } from "./loadBookMarks.js";
 
+const formEl = document.querySelector(".form");
 const userSelectEl = document.getElementById("user");
 
 function createUserOption(user) {
@@ -44,61 +40,12 @@ function createBookmarkCard(user) {
   return bookmarkCard;
 }
 
-const formEl = document.querySelector(".form");
-
-if (formEl) {
-  formEl.addEventListener("submit", (e) => {
-    e.preventDefault();
-
-    const url = document.getElementById("url").value;
-    const title = document.getElementById("title").value;
-    const description = document.getElementById("description").value;
-    const date = new Date().toLocaleString();
-
-    const collectedData = { url, title, description, date };
-
-    const selectedUserName = userSelectEl.value;
-    const user = USERS.find((user) => user.name === selectedUserName);
-    if (user) {
-      user.bookmarks.push(collectedData);
-      setData(user.id, user);
-      const bookmarksContainer = document.querySelector(".bookmarks");
-      bookmarksContainer.innerHTML = ""; // Clear previous bookmarks
-      const bookmarkCard = createBookmarkCard(user);
-      bookmarksContainer.append(bookmarkCard);
-    }
-    formEl.reset();
-  });
-}
+// event for bookmark submission
+formEl.addEventListener("submit", handleBookmarkSubmission);
 
 window.onload = function () {
   render();
-
-  userSelectEl.addEventListener("change", (event) => {
-    const optionText = event.target.value.toLowerCase();
-    const bookmarksContainer = document.querySelector(".bookmarks");
-    bookmarksContainer.innerHTML = ""; // Clear previous bookmarks
-
-    const userIds = getUserIds();
-    let userFound = false;
-    for (const id of userIds) {
-      const userData = getData(id);
-      if (
-        userData &&
-        userData.name &&
-        userData.name.toLowerCase() === optionText
-      ) {
-        userFound = true;
-        if (userData.bookmarks && userData.bookmarks.length > 0) {
-          const bookmarkCard = createBookmarkCard(userData);
-          bookmarksContainer.append(bookmarkCard);
-        }
-      }
-    }
-    if (!userFound || bookmarksContainer.children.length === 0) {
-      bookmarksContainer.innerHTML = `<p>No bookmarks available for <strong>${optionText}</strong></p>`;
-    }
-  });
+  userSelectEl.addEventListener("change", loadBookmarksForSelectedUser);
 };
 
 export { createUserOption, createBookmarkCard };
