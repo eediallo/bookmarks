@@ -1,19 +1,7 @@
-import { USERS } from "./data.js";
 import { handleBookmarkSubmission } from "./handleBookMarksSub.js";
 import { loadBookmarksForSelectedUser } from "./loadBookMarks.js";
 import { userSelectEl, formEl, createBookmarkBtn } from "./config.js";
-
-function createUserOption(user) {
-  const option = document.createElement("option");
-  option.value = user.name;
-  option.textContent = user.name;
-  return option;
-}
-
-function render() {
-  const usersList = USERS.map(createUserOption);
-  userSelectEl.append(...usersList);
-}
+import { renderOptionList } from "./option.js";
 
 function createBookmarkCard(user) {
   const bookmarkCard = document.createElement("section");
@@ -38,16 +26,16 @@ function createBookmarkCard(user) {
   return bookmarkCard;
 }
 
-createBookmarkBtn.addEventListener("click", () => {
-  formEl.style.display = "block";
-  // event for bookmark submission
-  formEl.addEventListener("submit", handleBookmarkSubmission);
-  createBookmarkBtn.style.display = "none";
-});
-
 window.onload = function () {
-  render();
+  createBookmarkBtn.addEventListener("click", () => {
+    formEl.style.display = "block";
+    // event for bookmark submission
+    formEl.addEventListener("submit", handleBookmarkSubmission);
+    createBookmarkBtn.style.display = "none";
+  });
+
+  renderOptionList();
   userSelectEl.addEventListener("change", loadBookmarksForSelectedUser);
 };
 
-export { createUserOption, createBookmarkCard };
+export { createBookmarkCard };
