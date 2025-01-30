@@ -4,8 +4,8 @@
 // Note that when running locally, in order to open a web page which uses modules, you must serve the directory over HTTP e.g. with https://www.npmjs.com/package/http-server
 // You can't open the index.html file using a file:// URL.
 
-import { getUserIds } from "./storage.js";
 import { INITIAL_USERS } from "./data.js";
+import { getUserIds, setData, clearData, getData } from "./storage.js";
 
 const userSelectEl = document.getElementById("user");
 
@@ -36,7 +36,7 @@ function createBookmarkCard(user) {
     const dateEl = document.createElement("p");
     dateEl.textContent = date;
 
-    bookmarkCard.append(date, titleP, descEl);
+    bookmarkCard.append(dateEl, titleP, descEl);
   }
 
   bookmarkCard.classList.add("bookmark-card");
@@ -44,6 +44,34 @@ function createBookmarkCard(user) {
   return bookmarkCard;
 }
 
+const formEl = document.querySelector(".form");
+
+if (formEl) {
+  formEl.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const url = document.getElementById("url").value;
+    const title = document.getElementById("title").value;
+    const description = document.getElementById("description").value;
+    const date = new Date().toLocaleString();
+
+    const collectedData = { url, title, description, date };
+    
+    const selectedUserName = userSelectEl.value;
+    const user = INITIAL_USERS.find((user) => user.name === selectedUserName);
+    if (user) {
+      collectedData.id = id;
+      user.bookmarks.push(collectedData);
+      const bookmarksContainer = document.querySelector(".bookmarks");
+      bookmarksContainer.innerHTML = ""; // Clear previous bookmarks
+      const bookmarkCard = createBookmarkCard(user);
+      bookmarksContainer.append(bookmarkCard);
+    }
+    formEl.reset();
+
+    console.log(INITIAL_USERS);
+  });
+}
 
 window.onload = function () {
   render();
