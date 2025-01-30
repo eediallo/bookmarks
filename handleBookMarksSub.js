@@ -1,5 +1,5 @@
 const userSelectEl = document.getElementById("user");
-import { createBookmarkCard } from "./script.js";
+import { createBookmarkCard } from "./bookMarkCard.js";
 import { USERS } from "./data.js";
 import { getData, setData } from "./storage.js";
 import { createBookmarkBtn, formEl } from "./config.js";
