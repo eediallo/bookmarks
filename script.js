@@ -1,9 +1,7 @@
 import { USERS } from "./data.js";
 import { handleBookmarkSubmission } from "./handleBookMarksSub.js";
 import { loadBookmarksForSelectedUser } from "./loadBookMarks.js";
-
-const formEl = document.querySelector(".form");
-const userSelectEl = document.getElementById("user");
+import { userSelectEl, formEl, createBookmarkBtn } from "./config.js";
 
 function createUserOption(user) {
   const option = document.createElement("option");
@@ -40,8 +38,12 @@ function createBookmarkCard(user) {
   return bookmarkCard;
 }
 
-// event for bookmark submission
-formEl.addEventListener("submit", handleBookmarkSubmission);
+createBookmarkBtn.addEventListener("click", () => {
+  formEl.style.display = "block";
+  // event for bookmark submission
+  formEl.addEventListener("submit", handleBookmarkSubmission);
+  createBookmarkBtn.style.display = "none";
+});
 
 window.onload = function () {
   render();
