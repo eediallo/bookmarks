@@ -15,14 +15,13 @@ export function handleBookmarkSubmission(e) {
   const description = descriptionInput.value;
   const date = new Date().toLocaleString();
 
-  const collectedData = { url, title, description, date };
+  const bookmark = { url, title, description, date };
 
   const selectedUserName = userSelectEl.value;
   let user = USERS.find((user) => user.name === selectedUserName);
   if (user) {
     const existingData = getData(user.id) || user;
-    console.log(existingData);
-    existingData.bookmarks.push(collectedData);
+    existingData.bookmarks.push(bookmark);
     user = existingData;
     setData(user.id, user);
     const bookmarksContainer = document.querySelector(".bookmarks");
