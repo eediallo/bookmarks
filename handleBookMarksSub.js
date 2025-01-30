@@ -6,9 +6,13 @@ import { getData, setData } from "./storage.js";
 export function handleBookmarkSubmission(e) {
   e.preventDefault();
 
-  const url = document.getElementById("url").value;
-  const title = document.getElementById("title").value;
-  const description = document.getElementById("description").value;
+  const urlInput = document.getElementById("url");
+  const titleInput = document.getElementById("title");
+  const descriptionInput = document.getElementById("description");
+
+  const url = urlInput.value;
+  const title = titleInput.value;
+  const description = descriptionInput.value;
   const date = new Date().toLocaleString();
 
   const collectedData = { url, title, description, date };
@@ -16,7 +20,7 @@ export function handleBookmarkSubmission(e) {
   const selectedUserName = userSelectEl.value;
   let user = USERS.find((user) => user.name === selectedUserName);
   if (user) {
-    const existingData = getData(user.id) || [];
+    const existingData = getData(user.id) || user;
     console.log(existingData);
     existingData.bookmarks.push(collectedData);
     user = existingData;
@@ -26,4 +30,9 @@ export function handleBookmarkSubmission(e) {
     const bookmarkCard = createBookmarkCard(user);
     bookmarksContainer.append(bookmarkCard);
   }
+
+  // Clear form fields after submission
+  urlInput.value = "";
+  titleInput.value = "";
+  descriptionInput.value = "";
 }
