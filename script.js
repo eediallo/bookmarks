@@ -56,11 +56,11 @@ if (formEl) {
     const date = new Date().toLocaleString();
 
     const collectedData = { url, title, description, date };
-    
+
     const selectedUserName = userSelectEl.value;
     const user = INITIAL_USERS.find((user) => user.name === selectedUserName);
+
     if (user) {
-      collectedData.id = id;
       user.bookmarks.push(collectedData);
       const bookmarksContainer = document.querySelector(".bookmarks");
       bookmarksContainer.innerHTML = ""; // Clear previous bookmarks
