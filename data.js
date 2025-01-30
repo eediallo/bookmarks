@@ -4,7 +4,6 @@ export const INITIAL_USERS = [
     name: "Elhadj",
     bookmarks: [
       {
-        id: 1,
         date: "JAN 29, 2025",
         url: "https://codeyourfuture.io/",
         title: "The beginning of the end",
@@ -18,7 +17,6 @@ export const INITIAL_USERS = [
     name: "Sally",
     bookmarks: [
       {
-        id: 1,
         date: "JAN 29, 2025",
         url: "https://www.codewars.com/",
         title: "Lif if about saying HELLO",
