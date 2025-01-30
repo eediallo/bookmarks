@@ -59,17 +59,15 @@ if (formEl) {
 
     const selectedUserName = userSelectEl.value;
     const user = INITIAL_USERS.find((user) => user.name === selectedUserName);
-
     if (user) {
       user.bookmarks.push(collectedData);
+      setData(user.id, user);
       const bookmarksContainer = document.querySelector(".bookmarks");
       bookmarksContainer.innerHTML = ""; // Clear previous bookmarks
       const bookmarkCard = createBookmarkCard(user);
       bookmarksContainer.append(bookmarkCard);
     }
     formEl.reset();
-
-    console.log(INITIAL_USERS);
   });
 }
 
