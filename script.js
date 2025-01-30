@@ -58,7 +58,7 @@ if (formEl) {
     const collectedData = { url, title, description, date };
 
     const selectedUserName = userSelectEl.value;
-    const user = INITIAL_USERS.find((user) => user.name === selectedUserName);
+    const user = USERS.find((user) => user.name === selectedUserName);
     if (user) {
       user.bookmarks.push(collectedData);
       setData(user.id, user);
@@ -80,18 +80,23 @@ window.onload = function () {
     bookmarksContainer.innerHTML = ""; // Clear previous bookmarks
 
     const userIds = getUserIds();
+    let userFound = false;
     for (const id of userIds) {
       const userData = getData(id);
-      if (userData) {
-        console.log(userData, "<=---user data");
-
-        if (userData.name && userData.name.toLowerCase() === optionText) {
+      if (
+        userData &&
+        userData.name &&
+        userData.name.toLowerCase() === optionText
+      ) {
+        userFound = true;
+        if (userData.bookmarks && userData.bookmarks.length > 0) {
           const bookmarkCard = createBookmarkCard(userData);
           bookmarksContainer.append(bookmarkCard);
         }
-      } else {
-        console.log("userData is null for id:", id);
       }
+    }
+    if (!userFound || bookmarksContainer.children.length === 0) {
+      bookmarksContainer.innerHTML = `<p>No bookmarks available for <strong>${optionText}</strong></p>`;
     }
   });
 };
