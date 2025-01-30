@@ -79,10 +79,18 @@ window.onload = function () {
     const bookmarksContainer = document.querySelector(".bookmarks");
     bookmarksContainer.innerHTML = ""; // Clear previous bookmarks
 
-    for (const user of INITIAL_USERS) {
-      if (user.name.toLowerCase() === optionText) {
-        const bookmarkCard = createBookmarkCard(user);
-        bookmarksContainer.append(bookmarkCard);
+    const userIds = getUserIds();
+    for (const id of userIds) {
+      const userData = getData(id);
+      if (userData) {
+        console.log(userData, "<=---user data");
+
+        if (userData.name && userData.name.toLowerCase() === optionText) {
+          const bookmarkCard = createBookmarkCard(userData);
+          bookmarksContainer.append(bookmarkCard);
+        }
+      } else {
+        console.log("userData is null for id:", id);
       }
     }
   });
