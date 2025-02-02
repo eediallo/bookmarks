@@ -2,7 +2,6 @@ const userSelectEl = document.getElementById("user");
 import { createBookmarkCard } from "./bookMarkCard.js";
 import { USERS } from "./data.js";
 import { getData, setData } from "./storage.js";
-//import { toggleBookmarkFormAndButtonVisibility } from "./config.js";
 
 export function handleBookmarkSubmission(e) {
   e.preventDefault();
@@ -36,5 +35,4 @@ export function handleBookmarkSubmission(e) {
   titleInput.value = "";
   descriptionInput.value = "";
 
-  // toggleBookmarkFormAndButtonVisibility(true);
 }
