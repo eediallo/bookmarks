@@ -23,7 +23,7 @@ describe("USERS", () => {
     expect(currentInput).toBe(targetInput);
   });
 
-  test("Each each should be of type plain object", () => {
+  test("Each user should be of type plain object", () => {
     let currentInput = false;
     for (const user of USERS) {
       currentInput = isPlainObject(user)
