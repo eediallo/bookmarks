@@ -3,8 +3,8 @@ import { userSelectEl } from "./config.js";
 
 function createUserOption(user) {
   const option = document.createElement("option");
-  option.value = user.name;
-  option.textContent = user.name;
+  option.value = user.name || "";
+  option.textContent = user.name || "";
   return option;
 }
 
@@ -13,4 +13,4 @@ function renderOptionList() {
   userSelectEl.append(...usersList);
 }
 
-export { renderOptionList };
+export { renderOptionList, createUserOption };
