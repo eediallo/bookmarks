@@ -2,6 +2,12 @@ import { USERS } from "./data.js";
 import { getUserIds } from "./storage.js";
 
 describe("getUserIds", () => {
+  test("should have ids", () => {
+    const currentInput = getUserIds().length > 0;
+    const targetInput = true;
+    expect(currentInput).toEqual(targetInput);
+  });
+
   test("should return user ids", () => {
     const currentInput = [];
     for (const { id } of USERS) {
