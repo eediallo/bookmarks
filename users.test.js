@@ -31,4 +31,13 @@ describe("USERS", () => {
     const targetInput = true;
     expect(currentInput).toBe(targetInput);
   });
+
+  test("Each user should have at least 3 properties", () => {
+    let currentInput = false;
+    for (const user of USERS) {
+      currentInput = Object.keys(user).length  >= 3
+    }
+    const targetInput = true;
+    expect(currentInput).toBe(targetInput);
+  });
 });
