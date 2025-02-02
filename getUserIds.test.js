@@ -8,6 +8,19 @@ describe("getUserIds", () => {
     expect(currentInput).toEqual(targetInput);
   });
 
+  test("should have exactly five ids", () => {
+    const currentInput = getUserIds().length === 5;
+    const targetInput = true;
+    expect(currentInput).toBe(targetInput);
+  });
+
+
+ test("should have ids", () => {
+    const currentInput = getUserIds().length > 0;
+    const targetInput = true;
+    expect(currentInput).toEqual(targetInput);
+  });
+
   test("should return user ids", () => {
     const currentInput = [];
     for (const { id } of USERS) {
