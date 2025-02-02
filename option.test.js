@@ -1,8 +1,8 @@
-import { createUserOption } from "./config.js";
+import { createUserOption } from "./option.js";
 
 describe("createUserOption", () => {
   test("should create an option element with the correct value and text content", () => {
-    const user = { name: "John Doe" };
+  const user = { name: "John Doe" };
     const option = createUserOption(user);
 
     expect(option.tagName).toBe("OPTION");
