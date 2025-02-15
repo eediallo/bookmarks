@@ -1,5 +1,4 @@
 export function formatDate(date) {
-  console.log(date, "===>");
   const day = date.getDate();
   const month = date.toLocaleString("default", { month: "long" });
   const year = date.getFullYear();
