@@ -1,17 +1,16 @@
+import { createElement } from "./createElement.js";
+
 function createBookmarkCard(user) {
   const bookmarkCard = document.createElement("section");
   for (const { url, title, description, date } of user.bookmarks) {
-    const titleEl = document.createElement("a");
+    const titleEl = createElement(title, "a");
     titleEl.setAttribute("href", url);
-    titleEl.textContent = title;
 
     const titleP = document.createElement("p");
     titleP.append(titleEl);
 
-    const descEl = document.createElement("p");
-    descEl.textContent = description;
-    const dateEl = document.createElement("p");
-    dateEl.textContent = date;
+    const descEl = createElement(description, "p");
+    const dateEl = createElement(date, "p");
 
     bookmarkCard.append(titleP, descEl, dateEl);
   }
