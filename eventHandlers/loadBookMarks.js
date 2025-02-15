@@ -5,7 +5,7 @@ const userSelectEl = document.getElementById("user");
 export function loadBookmarksForSelectedUser() {
   const optionText = userSelectEl.value.toLowerCase();
   const bookmarksContainer = document.querySelector(".bookmarks");
-  bookmarksContainer.innerHTML = ""; // Clear previous bookmarks
+  bookmarksContainer.innerHTML = ""; 
 
   const userIds = getUserIds();
   let userFound = false;

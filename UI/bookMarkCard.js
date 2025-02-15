@@ -13,7 +13,7 @@ function createBookmarkCard(user) {
     const dateEl = document.createElement("p");
     dateEl.textContent = date;
 
-    bookmarkCard.append(dateEl, titleP, descEl);
+    bookmarkCard.append(titleP, descEl, dateEl);
   }
 
   bookmarkCard.classList.add("bookmark-card");
