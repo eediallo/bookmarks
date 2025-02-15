@@ -1,5 +1,5 @@
-import { USERS } from "./data.js";
-import { getUserIds } from "./storage.js";
+import { USERS } from "../data.js";
+import { getUserIds } from "../storage.js";
 
 describe("getUserIds", () => {
   test("should have ids", () => {
