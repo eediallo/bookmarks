@@ -1,4 +1,4 @@
-import { renderOptionList } from "./option.js";
+import { renderOptionList } from "./UI/option.js";
 import { attachEventHandlers } from "./eventHandlers/attachEventHandlers.js";
 
 function main() {

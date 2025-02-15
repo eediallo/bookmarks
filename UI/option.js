@@ -1,5 +1,5 @@
-import { USERS } from "./data/data.js";
-import { userSelectEl } from "./config.js";
+import { USERS } from "../data/data.js";
+import { userSelectEl } from "../config.js";
 
 function createUserOption(user) {
   const option = document.createElement("option");
