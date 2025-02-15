@@ -1,5 +1,5 @@
-import { USERS } from "../data.js";
-import { getUserIds } from "../storage.js";
+import { USERS } from "../data/data.js";
+import { getUserIds } from "../data/storage.js";
 
 describe("getUserIds", () => {
   test("should have ids", () => {
@@ -14,8 +14,7 @@ describe("getUserIds", () => {
     expect(currentInput).toBe(targetInput);
   });
 
-
- test("should have ids", () => {
+  test("should have ids", () => {
     const currentInput = getUserIds().length > 0;
     const targetInput = true;
     expect(currentInput).toEqual(targetInput);
