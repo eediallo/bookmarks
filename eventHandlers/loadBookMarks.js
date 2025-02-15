@@ -24,6 +24,8 @@ export function loadBookmarksForSelectedUser() {
     }
   }
   if (!userFound || bookmarksContainer.children.length === 0) {
-    bookmarksContainer.innerHTML = `<p>No bookmarks available for <strong>${optionText}</strong></p>`;
+    bookmarksContainer.innerHTML = `<p>No bookmarks available for <strong>${optionText[0].toUpperCase()}${optionText.slice(
+      1
+    )}</strong></p>`;
   }
 }
