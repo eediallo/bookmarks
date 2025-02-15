@@ -1,4 +1,4 @@
-import { createUserOption } from "./option.js";
+import { createUserOption } from "../option.js";
 
 describe("createUserOption", () => {
   test("should create an option element with the correct value and text content", () => {
