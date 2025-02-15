@@ -1,5 +1,5 @@
 import { renderOptionList } from "./option.js";
-import { setupEventListeners } from "./eventHandlers.js";
+import { setupEventListeners } from "./eventHandlers/attachEventHandlers.js";
 
 function main() {
   renderOptionList();
