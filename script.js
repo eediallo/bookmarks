@@ -6,4 +6,4 @@ function main() {
   attachEventHandlers();
 }
 
-window.addEventListener("DOMContentLoaded", main);
+window.onload = main;
