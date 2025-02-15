@@ -25,7 +25,7 @@ export function handleBookmarkSubmission(e) {
     user = existingData;
     setData(user.id, user);
     const bookmarksContainer = document.querySelector(".bookmarks");
-    bookmarksContainer.innerHTML = ""; // create previous bookmarks
+    bookmarksContainer.innerHTML = "";
     const bookmarkCard = createBookmarkCard(user);
     bookmarksContainer.append(bookmarkCard);
   }
