@@ -1,5 +1,5 @@
-import { getUserIds, getData } from "./data/storage.js";
-import { createBookmarkCard } from "./bookMarkCard.js";
+import { getUserIds, getData } from "../data/storage.js";
+import { createBookmarkCard } from "../bookMarkCard.js";
 const userSelectEl = document.getElementById("user");
 
 export function loadBookmarksForSelectedUser() {

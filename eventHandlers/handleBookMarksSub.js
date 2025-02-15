@@ -1,7 +1,7 @@
 const userSelectEl = document.getElementById("user");
-import { createBookmarkCard } from "./bookMarkCard.js";
-import { USERS } from "./data/data.js";
-import { getData, setData } from "./data/storage.js";
+import { createBookmarkCard } from "../bookMarkCard.js";
+import { USERS } from "../data/data.js";
+import { getData, setData } from "../data/storage.js";
 
 export function handleBookmarkSubmission(e) {
   e.preventDefault();

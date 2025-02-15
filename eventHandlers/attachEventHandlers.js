@@ -1,6 +1,6 @@
 import { formEl, userSelectEl } from "../config.js";
-import { handleBookmarkSubmission } from "../handleBookMarksSub.js";
-import { loadBookmarksForSelectedUser } from "../loadBookMarks.js";
+import { handleBookmarkSubmission } from "./handleBookMarksSub.js";
+import { loadBookmarksForSelectedUser } from "./loadBookMarks.js";
 
 export function attachEventHandlers() {
   if (formEl) {
