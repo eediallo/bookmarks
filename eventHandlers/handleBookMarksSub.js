@@ -1,5 +1,6 @@
 const userSelectEl = document.getElementById("user");
 import { createBookmarkCard } from "../UI/bookMarkCard.js";
+import { formatDate } from "../UI/formatDate.js";
 import { USERS } from "../data/data.js";
 import { getData, setData } from "../data/storage.js";
 
@@ -13,7 +14,7 @@ export function handleBookmarkSubmission(e) {
   const url = urlInput.value;
   const title = titleInput.value;
   const description = descriptionInput.value;
-  const date = new Date().toLocaleString();
+  const date = formatDate(new Date());
 
   const bookmark = { url, title, description, date };
 
