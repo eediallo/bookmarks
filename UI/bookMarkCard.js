@@ -11,6 +11,7 @@ function createBookmarkCard(bookmark) {
 
   const descEl = createElement(bookmark.description, "p");
   const dateEl = createElement(bookmark.date, "p");
+  dateEl.style.fontWeight = "bold";
 
   bookmarkCard.append(titleP, descEl, dateEl);
 
