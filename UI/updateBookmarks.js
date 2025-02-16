@@ -1,6 +1,6 @@
 import { sortAndFormatBookmarks } from "./sortAndFormatBookmarks.js";
 import { renderBookmarks } from "./bookMarkCard.js";
-import { bookmarksContainer } from "../config.js";
+import { bookmarksContainer } from "../domQueries.js";
 import { setData, getData } from "../data/storage.js";
 
 export function updateUserBookmarks(user, bookmark) {

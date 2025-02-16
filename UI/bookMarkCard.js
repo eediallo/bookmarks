@@ -1,4 +1,4 @@
-import { bookmarksContainer } from "../config.js";
+import { bookmarksContainer } from "../domQueries.js";
 import { createElement } from "./createElement.js";
 
 function createBookmarkCard(bookmark) {

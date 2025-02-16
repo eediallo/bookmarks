@@ -1,4 +1,4 @@
-import { formEl, userSelectEl } from "../config.js";
+import { formEl, userSelectEl } from "../domQueries.js";
 import { handleBookmarkSubmission } from "./handleBookMarksSub.js";
 import { loadBookmarksForSelectedUser } from "./loadBookMarks.js";
 

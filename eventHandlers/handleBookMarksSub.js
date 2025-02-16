@@ -3,7 +3,7 @@ import {
   urlInputEl,
   descriptionInputEl,
   titleInputEl,
-} from "../config.js";
+} from "../domQueries.js";
 import { updateUserBookmarks } from "../UI/updateBookmarks.js";
 import { USERS } from "../data/data.js";
 
