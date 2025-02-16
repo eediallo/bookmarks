@@ -1,17 +1,17 @@
-import { userSelectEl } from "../config.js";
+import {
+  userSelectEl,
+  urlInputEl,
+  descriptionInputEl,
+  titleInputEl,
+} from "../config.js";
 import { updateUserBookmarks } from "../UI/updateBookmarks.js";
 import { USERS } from "../data/data.js";
 
 export function handleBookmarkSubmission(e) {
   e.preventDefault();
-
-  const urlInput = document.getElementById("url");
-  const titleInput = document.getElementById("title");
-  const descriptionInput = document.getElementById("description");
-
-  const url = urlInput.value;
-  const title = titleInput.value;
-  const description = descriptionInput.value;
+  const url = urlInputEl.value;
+  const title = titleInputEl.value;
+  const description = descriptionInputEl.value;
   const date = new Date();
 
   const bookmark = { url, title, description, date };
@@ -21,7 +21,7 @@ export function handleBookmarkSubmission(e) {
   user = updateUserBookmarks(user, bookmark);
 
   // Clear form fields after submission
-  urlInput.value = "";
-  titleInput.value = "";
-  descriptionInput.value = "";
+  urlInputEl.value = "";
+  titleInputEl.value = "";
+  descriptionInputEl.value = "";
 }
