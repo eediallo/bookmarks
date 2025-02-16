@@ -1,12 +1,11 @@
 export function formatDate(date) {
-  const day = date.getDate();
-  const month = date.toLocaleString("default", { month: "long" });
-  const year = date.getFullYear();
+  const options = {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  };
+  const formattedDate = date.toLocaleDateString("en-GB", options);
 
-  let suffix = "th";
-  if (day === 1 || day === 21 || day === 31) suffix = "st";
-  if (day === 2 || day === 22) suffix = "nd";
-  if (day === 3 || day === 23) suffix = "rd";
-
-  return `${day}${suffix} ${month} ${year}`;
+  return formattedDate;
 }
