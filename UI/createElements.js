@@ -6,7 +6,7 @@ export function createElement(content, tag) {
 
 export function createAndAppendElement(elements, tag) {
   const element = document.createElement(tag);
-  return elements.length == 1
+  return elements.length === 1
     ? element.append(elements[0])
     : element.append(...elements);
 }
