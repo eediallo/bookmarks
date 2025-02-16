@@ -1,11 +1,11 @@
 import { getUserIds, getData } from "../data/storage.js";
-import { createBookmarkCard } from "../UI/bookMarkCard.js";
+import { renderBookmarks } from "../UI/bookMarkCard.js";
 const userSelectEl = document.getElementById("user");
 
 export function loadBookmarksForSelectedUser() {
   const optionText = userSelectEl.value.toLowerCase();
   const bookmarksContainer = document.querySelector(".bookmarks");
-  bookmarksContainer.innerHTML = ""; 
+  bookmarksContainer.innerHTML = "";
 
   const userIds = getUserIds();
   let userFound = false;
@@ -18,8 +18,7 @@ export function loadBookmarksForSelectedUser() {
     ) {
       userFound = true;
       if (userData.bookmarks && userData.bookmarks.length > 0) {
-        const bookmarkCard = createBookmarkCard(userData);
-        bookmarksContainer.append(bookmarkCard);
+        renderBookmarks(userData.bookmarks);
       }
     }
   }
