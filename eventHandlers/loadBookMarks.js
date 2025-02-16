@@ -4,18 +4,14 @@ import { bookmarksContainer, userSelectEl } from "../domQueries.js";
 import { createElement } from "../UI/createElement.js";
 
 export function loadBookmarksForSelectedUser() {
-  const optionText = userSelectEl.value.toLowerCase();
+  const selectedUser = userSelectEl.value;
   bookmarksContainer.innerHTML = "";
 
   const userIds = getUserIds();
   let userFound = false;
   for (const id of userIds) {
     const userData = getData(id);
-    if (
-      userData &&
-      userData.name &&
-      userData.name.toLowerCase() === optionText
-    ) {
+    if (userData && userData.name && userData.name === selectedUser) {
       userFound = true;
 
       const bookmarkTitle = createElement(`${userData.name}'s bookmarks`, "h1");
@@ -27,8 +23,6 @@ export function loadBookmarksForSelectedUser() {
     }
   }
   if (!userFound || bookmarksContainer.children.length === 0) {
-    bookmarksContainer.innerHTML = `<p>No bookmarks available for <strong>${optionText[0].toUpperCase()}${optionText.slice(
-      1
-    )}</strong></p>`;
+    bookmarksContainer.innerHTML = `<p>No bookmarks available for <strong>${selectedUser}</strong></p>`;
   }
 }
