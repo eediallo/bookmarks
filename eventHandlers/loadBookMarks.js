@@ -1,10 +1,9 @@
 import { getUserIds, getData } from "../data/storage.js";
 import { renderBookmarks } from "../UI/bookMarkCard.js";
-const userSelectEl = document.getElementById("user");
+import { bookmarksContainer, userSelectEl } from "../domQueries.js";
 
 export function loadBookmarksForSelectedUser() {
   const optionText = userSelectEl.value.toLowerCase();
-  const bookmarksContainer = document.querySelector(".bookmarks");
   bookmarksContainer.innerHTML = "";
 
   const userIds = getUserIds();
