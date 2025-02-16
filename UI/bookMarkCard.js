@@ -15,9 +15,6 @@ function createBookmarkCard(bookmark) {
     [titleP, descEl, dateEl],
     "section"
   );
-
-  bookmarkCard.classList.add("bookmark-card");
-
   return bookmarkCard;
 }
 
