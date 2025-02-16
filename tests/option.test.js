@@ -1,8 +1,8 @@
-import { createUserOption } from "../UI/option.js";
+import { createUserOption } from "../UI/userDropDown.js";
 
 describe("createUserOption", () => {
   test("should create an option element with the correct value and text content", () => {
-  const user = { name: "John Doe" };
+    const user = { name: "John Doe" };
     const option = createUserOption(user);
 
     expect(option.tagName).toBe("OPTION");
