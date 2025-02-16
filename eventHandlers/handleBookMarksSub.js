@@ -24,6 +24,10 @@ export function handleBookmarkSubmission(e) {
     const existingData = getData(user.id) || user;
     existingData.bookmarks.push(bookmark);
     existingData.bookmarks.sort((a, b) => new Date(b.date) - new Date(a.date));
+    existingData.bookmarks = existingData.bookmarks.map((bookmark) => ({
+      ...bookmark,
+      date: formate(new Date(bookmark.date)),
+    }));
     user = existingData;
     setData(user.id, user);
     bookmarksContainer.innerHTML = "";
@@ -34,4 +38,17 @@ export function handleBookmarkSubmission(e) {
   urlInput.value = "";
   titleInput.value = "";
   descriptionInput.value = "";
+}
+
+function formate(date) {
+  // Format the date
+  const options = {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  };
+  const formattedDate = date.toLocaleDateString("en-US", options);
+
+  return formattedDate;
 }
