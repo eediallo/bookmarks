@@ -6,10 +6,6 @@ export function createElement(content, tag) {
 
 export function createAndAppendElement(elements, tag) {
   const element = document.createElement(tag);
-  if (elements.length === 1) {
-    element.append(elements[0]);
-  } else {
-    element.append(...elements);
-  }
+  element.append(...elements);
   return element;
 }
