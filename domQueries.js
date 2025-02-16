@@ -4,6 +4,9 @@ const bookmarksContainer = document.querySelector(".bookmarks");
 const urlInputEl = document.querySelector("#url");
 const titleInputEl = document.querySelector("#title");
 const descriptionInputEl = document.querySelector("#description");
+const addBookmarkBtn = document.querySelector("#addBookmarkBtn");
+
+formEl.style.display = "none";
 
 export {
   formEl,
@@ -12,4 +15,5 @@ export {
   urlInputEl,
   titleInputEl,
   descriptionInputEl,
+  addBookmarkBtn,
 };
