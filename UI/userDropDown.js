@@ -8,9 +8,9 @@ function createUserOption(user) {
   return option;
 }
 
-function renderOptionList() {
+function renderDropDownList() {
   const usersList = USERS.map(createUserOption);
   userSelectEl.append(...usersList);
 }
 
-export { renderOptionList, createUserOption };
+export { renderDropDownList, createUserOption };

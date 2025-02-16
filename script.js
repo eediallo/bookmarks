@@ -1,8 +1,8 @@
-import { renderOptionList } from "./UI/userDropDown.js";
+import { renderDropDownList } from "./UI/userDropDown.js";
 import { attachEventHandlers } from "./eventHandlers/attachEventHandlers.js";
 
 function main() {
-  renderOptionList();
+  renderDropDownList();
   attachEventHandlers();
 }
 
