@@ -1,8 +1,6 @@
-import { userSelectEl, bookmarksContainer } from "../config.js";
-import { renderBookmarks } from "../UI/bookMarkCard.js";
-import { formatDate } from "../UI/formatDate.js";
+import { userSelectEl } from "../config.js";
+import { updateUserBookmarks } from "../UI/updateBookmarks.js";
 import { USERS } from "../data/data.js";
-import { getData, setData } from "../data/storage.js";
 
 export function handleBookmarkSubmission(e) {
   e.preventDefault();
@@ -20,19 +18,7 @@ export function handleBookmarkSubmission(e) {
 
   const selectedUserName = userSelectEl.value;
   let user = USERS.find((user) => user.name === selectedUserName);
-  if (user) {
-    const existingData = getData(user.id) || user;
-    existingData.bookmarks.push(bookmark);
-    existingData.bookmarks.sort((a, b) => new Date(b.date) - new Date(a.date));
-    existingData.bookmarks = existingData.bookmarks.map((bookmark) => ({
-      ...bookmark,
-      date: formatDate(new Date(bookmark.date)),
-    }));
-    user = existingData;
-    setData(user.id, user);
-    bookmarksContainer.innerHTML = "";
-    renderBookmarks(user.bookmarks);
-  }
+  user = updateUserBookmarks(user, bookmark);
 
   // Clear form fields after submission
   urlInput.value = "";
