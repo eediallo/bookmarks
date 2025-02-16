@@ -7,6 +7,7 @@ import {
 import { updateUserBookmarks } from "../UI/updateBookmarks.js";
 import { USERS } from "../data/users.js";
 import { loadBookmarksForSelectedUser } from "./loadBookMarks.js";
+import { toggleFormDisplay } from "./toggleFormDisplay.js";
 
 export function handleBookmarkSubmission(e) {
   e.preventDefault();
@@ -27,4 +28,6 @@ export function handleBookmarkSubmission(e) {
   urlInputEl.value = "";
   titleInputEl.value = "";
   descriptionInputEl.value = "";
+
+  toggleFormDisplay(true);
 }
