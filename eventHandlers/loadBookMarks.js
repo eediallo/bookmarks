@@ -1,7 +1,7 @@
 import { getUserIds, getData } from "../data/storage.js";
 import { renderBookmarks } from "../UI/bookMarkCard.js";
 import { bookmarksContainer, userSelectEl } from "../domQueries.js";
-import { createElement } from "../UI/createElement.js";
+import { createElement } from "../UI/createElements.js";
 
 export function loadBookmarksForSelectedUser() {
   const selectedUser = userSelectEl.value;
