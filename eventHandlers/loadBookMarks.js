@@ -22,7 +22,7 @@ export function loadBookmarksForSelectedUser() {
       }
     }
   }
-  if (!userFound || bookmarksContainer.children.length === 0) {
+  if (!userFound) {
     bookmarksContainer.innerHTML = `<p>No bookmarks available for <strong>${selectedUser}</strong></p>`;
   }
 }
