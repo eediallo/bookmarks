@@ -6,6 +6,7 @@ import {
 } from "../domQueries.js";
 import { updateUserBookmarks } from "../UI/updateBookmarks.js";
 import { USERS } from "../data/data.js";
+import { loadBookmarksForSelectedUser } from "./loadBookMarks.js";
 
 export function handleBookmarkSubmission(e) {
   e.preventDefault();
@@ -19,6 +20,8 @@ export function handleBookmarkSubmission(e) {
   const selectedUserName = userSelectEl.value;
   let user = USERS.find((user) => user.name === selectedUserName);
   user = updateUserBookmarks(user, bookmark);
+
+  loadBookmarksForSelectedUser();
 
   // Clear form fields after submission
   urlInputEl.value = "";
