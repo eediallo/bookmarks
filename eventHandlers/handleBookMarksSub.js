@@ -23,6 +23,7 @@ export function handleBookmarkSubmission(e) {
   if (user) {
     const existingData = getData(user.id) || user;
     existingData.bookmarks.push(bookmark);
+    existingData.bookmarks.sort((a, b) => new Date(b.date) - new Date(a.date));
     user = existingData;
     setData(user.id, user);
     bookmarksContainer.innerHTML = "";
