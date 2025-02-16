@@ -1,5 +1,5 @@
-const userSelectEl = document.getElementById("user");
-import { createBookmarkCard } from "../UI/bookMarkCard.js";
+import { userSelectEl, bookmarksContainer } from "../config.js";
+import { renderBookmarks } from "../UI/bookMarkCard.js";
 import { formatDate } from "../UI/formatDate.js";
 import { USERS } from "../data/data.js";
 import { getData, setData } from "../data/storage.js";
@@ -14,7 +14,7 @@ export function handleBookmarkSubmission(e) {
   const url = urlInput.value;
   const title = titleInput.value;
   const description = descriptionInput.value;
-  const date = formatDate(new Date());
+  const date = new Date();
 
   const bookmark = { url, title, description, date };
 
@@ -25,10 +25,8 @@ export function handleBookmarkSubmission(e) {
     existingData.bookmarks.push(bookmark);
     user = existingData;
     setData(user.id, user);
-    const bookmarksContainer = document.querySelector(".bookmarks");
     bookmarksContainer.innerHTML = "";
-    const bookmarkCard = createBookmarkCard(user);
-    bookmarksContainer.append(bookmarkCard);
+    renderBookmarks(user.bookmarks);
   }
 
   // Clear form fields after submission
