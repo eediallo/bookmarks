@@ -5,7 +5,7 @@ import {
   titleInputEl,
 } from "../domQueries.js";
 import { updateUserBookmarks } from "../UI/updateBookmarks.js";
-import { USERS } from "../data/data.js";
+import { USERS } from "../data/users.js";
 import { loadBookmarksForSelectedUser } from "./loadBookMarks.js";
 
 export function handleBookmarkSubmission(e) {

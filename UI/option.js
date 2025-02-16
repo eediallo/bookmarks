@@ -1,4 +1,4 @@
-import { USERS } from "../data/data.js";
+import { USERS } from "../data/users.js";
 import { userSelectEl } from "../domQueries.js";
 
 function createUserOption(user) {
