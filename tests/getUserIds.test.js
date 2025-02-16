@@ -1,4 +1,4 @@
-import { USERS } from "../data/data.js";
+import { USERS } from "../data/users.js";
 import { getUserIds } from "../data/storage.js";
 
 describe("getUserIds", () => {

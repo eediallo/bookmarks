@@ -1,4 +1,4 @@
-import { USERS } from "../data.js";
+import { USERS } from "../data/users.js";
 
 function isPlainObject(value) {
   return (
