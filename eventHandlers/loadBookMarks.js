@@ -14,7 +14,11 @@ export function loadBookmarksForSelectedUser() {
     if (userData && userData.name && userData.name === selectedUser) {
       userFound = true;
 
-      const bookmarkTitle = createElement(`${userData.name}'s bookmarks`, "h1");
+      const titleContent =
+        userData.bookmarks.length > 1
+          ? `${userData.name}'s bookmarks`
+          : `${userData.name}'s bookmark`;
+      const bookmarkTitle = createElement(titleContent, "h1");
       bookmarksContainer.append(bookmarkTitle);
 
       if (userData.bookmarks && userData.bookmarks.length > 0) {
