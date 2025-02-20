@@ -3,8 +3,8 @@ import { userSelectEl } from "../domQueries.js";
 
 function createUserOption(user) {
   const option = document.createElement("option");
-  option.value = user.name || "";
-  option.textContent = user.name || "";
+  option.value = user.name
+  option.textContent = user.name
   return option;
 }
 
