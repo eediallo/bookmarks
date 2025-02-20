@@ -2,7 +2,7 @@ import { USERS } from "../data/users.js";
 import { getUserIds } from "../data/storage.js";
 
 describe("getUserIds", () => {
-  test("should have ids", () => {
+  test("should not be empty", () => {
     const currentInput = getUserIds().length > 0;
     const targetInput = true;
     expect(currentInput).toEqual(targetInput);
@@ -12,12 +12,6 @@ describe("getUserIds", () => {
     const currentInput = getUserIds().length === 5;
     const targetInput = true;
     expect(currentInput).toBe(targetInput);
-  });
-
-  test("should have ids", () => {
-    const currentInput = getUserIds().length > 0;
-    const targetInput = true;
-    expect(currentInput).toEqual(targetInput);
   });
 
   test("should return user ids", () => {
